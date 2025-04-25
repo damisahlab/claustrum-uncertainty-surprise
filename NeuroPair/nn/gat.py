@@ -1,0 +1,129 @@
+ 
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+#%% Functions
+class AttentionHead(nn.Module):
+    def __init__(self, input_size, hidden_size, output_size, num_neurons):
+        super(AttentionHead, self).__init__() 
+
+        self.input_size = input_size
+        self.hidden_dim = hidden_size
+        self.output_size = output_size
+        self.num_neurons= num_neurons
+
+        self.pred_layer = self.build_attnetion_network() 
+        self.neuron_behaviour_alpha = nn.Parameter(torch.rand(num_neurons,  output_size))  
+        self.mlp = self.build_combining_network() 
+        self.out_layer = self.build_prediction_network() 
+
+    def build_combining_network(self):
+        """Define the combining neural network architecture."""
+        layers = [ 
+            nn.Linear(self.num_neurons, self.hidden_dim * 2), 
+            nn.ReLU(), 
+            # nn.BatchNorm1d(self.hidden_dim * 2),
+            nn.Linear(self.hidden_dim * 2, self.hidden_dim),
+            nn.ReLU(),
+            # nn.BatchNorm1d(self.hidden_dim),
+            nn.Linear(self.hidden_dim, self.hidden_dim),
+            nn.ReLU(),
+            # nn.BatchNorm1d(self.hidden_dim),
+            nn.Linear(self.hidden_dim, self.hidden_dim),
+            nn.ReLU(),
+            # nn.BatchNorm1d(self.hidden_dim),
+            nn.Linear(self.hidden_dim, self.num_neurons)
+        ]
+        return nn.Sequential(*layers)
+
+    def build_attnetion_network(self):
+        """Define the prediction neural network architecture."""
+        return nn.Sequential(
+            nn.Linear(self.input_size, self.output_size),
+            nn.ReLU(),
+            # nn.LogSigmoid()
+        ) 
+
+    def build_prediction_network(self):
+        """Define the prediction neural network architecture."""
+        return nn.Sequential(
+            nn.Linear(self.output_size, self.output_size),
+            # nn.LogSigmoid()
+        )
+ 
+    
+    def forward(self, x): 
+        
+        x = self.pred_layer(x).squeeze(-1) 
+        # 
+        # neuron_behaviour_alpha = self.mlp(self.neuron_behaviour_alpha.unsqueeze(0)).softmax(1)  
+ 
+        neuron_behaviour_alpha = self.neuron_behaviour_alpha.unsqueeze(0).softmax(1)  
+
+        
+        neuron_behaviour_alpha = neuron_behaviour_alpha.repeat(x.shape[0], 1, 1) 
+
+        
+        x = (neuron_behaviour_alpha*x)   
+        
+        out = self.out_layer(x) 
+        
+        return out, neuron_behaviour_alpha 
+
+ 
+class GraphAttentionV2Layer(nn.Module):
+    def __init__(self, in_features, out_features, n_heads):
+        """
+        Implementaion of a multi-head graph attention mechanism. 
+        
+        Args:
+            in_features (int): Number of input features per node.
+            out_features (int): Number of output features per node
+            n_heads (int): Number of attention heads to use for parallel attention processes
+        """
+        super().__init__()
+        self.n_heads = n_heads
+        self.n_hidden = out_features
+        self.linear_l = nn.Linear(in_features, self.n_hidden * n_heads, bias=False)
+        self.linear_r = nn.Linear(in_features, self.n_hidden * n_heads, bias=False)
+        self.attn = nn.Linear(self.n_hidden, 1, bias=False)
+        self.activation = nn.LeakyReLU(negative_slope=0.2)
+        self.softmax = nn.Softmax(dim=1)
+
+    def forward(self, zh, adj_mat):
+        """
+        Propagates the input through the graph attention layer to compute the output features and attention scores.
+
+        Args:
+            zh (torch.tensor): Node features tensor,  
+            adj_mat (torch.tensor): Adjacency matrix of the graph
+
+        Returns:
+            torch.tensor: Aggregated node features after applying attention 
+            torch.tensor: Attention scores for each node pair
+        """
+        
+        g_l = self.linear_l(zh).view(zh.shape[0], self.n_heads, self.n_hidden)
+        g_r = self.linear_r(zh).view(zh.shape[0], self.n_heads, self.n_hidden)
+
+        # Create repeated arrays
+        g_l_repeat = g_l.repeat(zh.shape[0], 1, 1)
+        g_r_repeat_interleave = g_r.repeat_interleave(zh.shape[0], dim=0)
+
+        # Sum features from transformations
+        g_sum = g_l_repeat + g_r_repeat_interleave
+        g_sum = g_sum.view(zh.shape[0], zh.shape[0], self.n_heads, self.n_hidden)
+
+        # Compute attention scores 
+        e = self.attn(self.activation(g_sum)).squeeze(-1)
+        att_score = e.masked_fill(adj_mat == 0, float('-inf'))
+
+        # Apply softmax to normalize the attention scores
+        att_score_sm = self.softmax(att_score)
+        attn_res = torch.einsum('ijh,jhf->ihf', att_score_sm, g_r)
+
+        return attn_res.mean(dim=1) #, att_score_sm.squeeze(-1)
+
+
+ 

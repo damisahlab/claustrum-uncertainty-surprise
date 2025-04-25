@@ -1,0 +1,5 @@
+python = 3.9.18            
+pytorch = 2.5.1            
+pytorch-cuda = 12.4          
+torchvision = 0.20.1
+matplotlib = 3.9.2
