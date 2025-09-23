@@ -25,27 +25,5 @@ class RnnLSTM(nn.Module):
         self.output_layer2 = nn.Linear(128, self.input_size)
         self.relu = nn.ReLU()
 
-    def forward(self, x, h_0, c_0):
-        # Pass input through the RNN layer
+    def forward(self, x, h_0, c_0): 
         x, (hidden_n, cell_n) = self.rnn(x, (h_0, c_0))
-
-        # # Flatten the output across the sequence dimension for input to fully connected layers
-        # x = x.reshape(-1, self.hidden_size)  # Correctly flatten x for FC layers
-
-        # # Pass through the first fully connected layer
-        # x = self.relu(self.output_layer1(x))
-        # x = F.dropout(x, p=self.dropout, training=self.training)  # Apply dropout appropriately
-
-        # # Pass through the second fully connected layer
-        # x = self.output_layer2(x)
-        # x = F.dropout(x, p=self.dropout, training=self.training)
-
-        # # Reshape x to match expected output dimensions
-        # x = x.reshape(-1, self.seq_len, self.input_size)
-
-        # # Obtain the last output and apply mean across the sequence
-        # # x = x[:, -1].mean(dim=1, keepdim=True)  # Simplified the mean calculation
-
-        # return x, hidden_n, cell_n
-
-

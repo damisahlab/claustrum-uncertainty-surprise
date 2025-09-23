@@ -1,6 +1,5 @@
 import torch
 from torch import nn 
- 
 
 class autoregressive(nn.Module):
     def __init__(self, hparams):
@@ -45,7 +44,3 @@ class autoregressive(nn.Module):
 
     def loss(self, y, y_hat):
         return self.criterion(y_hat, y) 
- 
-
-
- 
