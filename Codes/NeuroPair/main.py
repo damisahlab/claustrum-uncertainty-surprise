@@ -199,7 +199,6 @@ if __name__ == "__main__":
         'B_safety_variance', 
     ] 
 
-
     # Train across all subjects and regions
     all_sub_region_train(repeat_index, subject_id_list, ['ACC', 'CLA'], interested_behaviours_list)
     all_sub_region_train(repeat_index, onlyACC_subject_id_list, ['ACC'], interested_behaviours_list)
