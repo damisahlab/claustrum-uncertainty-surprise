@@ -58,6 +58,8 @@ git clone https://github.com/damisahlab/claustrum-uncertainty-surprise
 The analysis of each figure can be regenerated from that folder using the corresponding code for each figure. 
 
 **Example:** To generate Fig. 1e:
+
+
                 *HumanCLAandACC_Fig1e*
 
 # Citation
