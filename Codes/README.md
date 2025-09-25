@@ -78,6 +78,10 @@ The analysis of each figure can be regenerated from that folder using the corres
 
 # Citation
 
+If you use this code, please cite:
+
+> XX et al., "Single Neuron Representations of Surprise and Uncertainty in the Human Claustrum", *Nature*, 2025.
+
 ## Contributing
 
 We welcome contributions!
