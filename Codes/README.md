@@ -13,7 +13,7 @@
 
 # Overview
 
-This repository contains codes associated with paper *Single Neuron Representations of Surprise and Uncertainty in the Human Claustrum* by XX et al. 
+This repository contains code for reproducing analyses from the paper *Single Neuron Representations of Surprise and Uncertainty in the Human Claustrum* by XX et al. 
 
 # Abstract
 
@@ -34,16 +34,31 @@ Finally, a recurrent graph neural network (R-GNN) incorporating attention mechan
   
   - Signal Processing Toolbox
 
-- **Python and R** for Figures 4–6
+- **Python 3.9 and R version 4.5.0** for Figures 4–6
 
-# Code Structure
+# Directory Structure
 
-## Folder structure
+## Directory Structure
 
-1. Codes
-   
-   - NeuroPair (Recurrent Graph Neural Network with Attention)
-   - utilities (functions necessary for Matlab code)
+Here's an overview of the repository structure:
+
+```
+├── NeuroPair/                                   # Recurrent Graph Neural Network with Attention (Python)
+├── utilities/                                   # Helper functions for MATLAB analyses
+├── HumanCLAandACC_ExtFig8a.py                   # Python script Extended Figure 8a
+├── HumanCLAandACC_ExtFig9a_e.py                 # Python script Extended Figure 9a-e
+├── HumanCLAandACC_Fig1e.m                       # MATLAB script for Figure 1e
+├── HumanCLAandACC_Fig1f.m                       # MATLAB script for Figure 1f
+├── HumanCLAandACC_Fig1g.m                       # MATLAB script for Figure 1g
+├── HumanCLAandACC_Fig1h.m                       # MATLAB script for Figure 1h
+├── HumanCLAandACC_Fig1i.m                       # MATLAB script for Figure 1i
+├── HumanCLAandACC_Fig1j.m                       # MATLAB script for Figure 1j
+├── HumanCLAandACC_Fig4&5_chord_diagram.R        # R script for Figures 4 & 5 (Chord diagram)
+├── HumanCLAandACC_Fig4&5_mutual_information.py  # Python script for Figures 4 & 5 (Mutual information)
+├── HumanCLAandACC_Fig4&5_cluster_based_perm.py  # Python script for Figures 4 & 5 (Cluster-based analysis)
+├── HumanCLAandACC_Fig4_histogram.py             # Python script for Figure 4 histogram
+└── README.md
+```
 
 # Installation
 
@@ -58,7 +73,6 @@ git clone https://github.com/damisahlab/claustrum-uncertainty-surprise
 The analysis of each figure can be regenerated from that folder using the corresponding code for each figure. 
 
 **Example:** To generate Fig. 1e:
-
 
                 *HumanCLAandACC_Fig1e*
 
