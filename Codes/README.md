@@ -13,7 +13,7 @@
 
 # Overview
 
-This repository contains code for reproducing analyses from the paper *Single Neuron Representations of Surprise and Uncertainty in the Human Claustrum* by XX et al. 
+This repository contains code for reproducing analyses from the paper *The human claustrum encodes surprise and uncertainty during adaptive learning* by XX et al. 
 
 # Abstract
 
@@ -80,7 +80,7 @@ The analysis of each figure can be regenerated from that folder using the corres
 
 If you use this code, please cite:
 
-> XX et al., "Single Neuron Representations of Surprise and Uncertainty in the Human Claustrum", *Nature*, 2025.
+> XX et al., "The human claustrum encodes surprise and uncertainty during adaptive learning", *Nature*, 2025.
 
 ## Contributing
 

@@ -4,7 +4,7 @@ This repository implements NeuroPair, a recurrent graph neural network with atte
 
 This repository contains the implementation of **NeuroPair**, a recurrent graph neural network with neuron-specific attention, used to model and predict behavioral variables from single-neuron recordings in the human claustrum (CLA) and anterior cingulate cortex (ACC). The code accompanies the paper:
 
-> "Single Neuron Representations of Surprise and Uncertainty in the Human Claustrum", XX et al., *Nature*, 2025.
+> "The human claustrum encodes surprise and uncertainty during adaptive learning", XX et al., *Nature*, 2025.
 
 ## Table of Contents
 
@@ -83,7 +83,7 @@ python main.py
 
 If you use this code, please cite:
 
-> XX et al., "Single Neuron Representations of Surprise and Uncertainty in the Human Claustrum", *Nature*, 2025.
+> XX et al., "The human claustrum encodes surprise and uncertainty during adaptive learning", *Nature*, 2025.
 
 ## Contributing
 
