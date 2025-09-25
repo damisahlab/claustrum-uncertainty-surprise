@@ -1,4 +1,4 @@
-# Single Neuron Representations of Surprise and Uncertainty in the Human Claustrum
+# The human claustrum encodes surprise and uncertainty during adaptive learning
 
 # Table of Contents
 
