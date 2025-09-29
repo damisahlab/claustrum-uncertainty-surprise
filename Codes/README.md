@@ -37,21 +37,34 @@ We recorded single-neuron activity from the human claustrum (CLA), anterior cing
 Here's an overview of the repository structure:
 
 ```
-├── NeuroPair/                                   # Recurrent Graph Neural Network with Attention (Python)
-├── utilities/                                   # Helper functions for MATLAB analyses
-├── HumanCLAandACC_ExtFig8a.py                   # Python script Extended Figure 8a
-├── HumanCLAandACC_ExtFig9a_e.py                 # Python script Extended Figure 9a-e
-├── HumanCLAandACC_Fig1e.m                       # MATLAB script for Figure 1e
-├── HumanCLAandACC_Fig1f.m                       # MATLAB script for Figure 1f
-├── HumanCLAandACC_Fig1g.m                       # MATLAB script for Figure 1g
-├── HumanCLAandACC_Fig1h.m                       # MATLAB script for Figure 1h
-├── HumanCLAandACC_Fig1i.m                       # MATLAB script for Figure 1i
-├── HumanCLAandACC_Fig1j.m                       # MATLAB script for Figure 1j
-├── HumanCLAandACC_Fig4&5_chord_diagram.R        # R script for Figures 4 & 5 (Chord diagram)
-├── HumanCLAandACC_Fig4&5_mutual_information.py  # Python script for Figures 4 & 5 (Mutual information)
-├── HumanCLAandACC_Fig4&5_cluster_based_perm.py  # Python script for Figures 4 & 5 (Cluster-based analysis)
-├── HumanCLAandACC_Fig4_histogram.py             # Python script for Figure 4 histogram
-└── README.md
+├── NeuroPair/                                       # Recurrent Graph Neural Network with Attention (Python)
+├── utilities/                                       # Helper functions for MATLAB analyses
+├── HumanCLAandACC_Fig1e.m                           # MATLAB script for Figure 1e
+├── HumanCLAandACC_Fig1f.m                           # MATLAB script for Figure 1f
+├── HumanCLAandACC_Fig1g.m                           # MATLAB script for Figure 1g
+├── HumanCLAandACC_Fig1h.m                           # MATLAB script for Figure 1h
+├── HumanCLAandACC_Fig1i.m                           # MATLAB script for Figure 1i
+├── HumanCLAandACC_Fig1j.m                           # MATLAB script for Figure 1j
+├── HumanCLAandACC_Fig2_HeatMap.m                    # MATLAB script for Figure 2 heatmap
+├── HumanCLAandACC_Fig2&3_MeanResponseStats.m        # MATLAB script for Figures 2 & 3 mean responses
+├── HumanCLAandACC_Fig2&3_PausersBursters_HeatmapZScoresStats.m  # MATLAB script for Figures 2 & 3 heatmap stats
+├── HumanCLAandACC_Fig2&3_PermutationTest.m          # MATLAB script for Figures 2 & 3 permutation test
+├── HumanCLAandACC_Fig2&3_exampleNeuron.m            # MATLAB script for Figures 2 & 3 example neuron
+├── HumanCLAandACC_Fig4&5_Chord_Diagram.R            # R script for Figures 4 & 5 chord diagram
+├── HumanCLAandACC_Fig4&5_Mutual_Information.py      # Python script for Figures 4 & 5 mutual information
+├── HumanCLAandACC_Fig4&5_cluster_based_perm.py      # Python script for Figures 4 & 5 cluster-based permutation analysis
+├── HumanCLAandACC_Fig4_histogram.py                 # Python script for Figure 4 histogram
+├── HumanCLAandACC_ExtFig2_FractionOfResponders.m    # MATLAB script for Extended Figure 2 fraction of responders
+├── HumanCLAandACC_ExtFig2_PercentageOfResponders.m  # MATLAB script for Extended Figure 2 percentage of responders
+├── HumanCLAandACC_ExtFig2_vennDiagrams.m            # MATLAB script for Extended Figure 2 Venn diagrams
+├── HumanCLAandACC_ExtFig3_Stats.m                   # MATLAB script for Extended Figure 3 stats
+├── HumanCLAandACC_ExtFig4_HeatMap.m                 # MATLAB script for Extended Figure 4 heatmap
+├── HumanCLAandACC_ExtFig4_HeatMap_Shuffled.m        # MATLAB script for Extended Figure 4 shuffled heatmap
+├── HumanCLAandACC_ExtFig8a.py                       # Python script for Extended Figure 8a
+├── HumanCLAandACC_ExtFig9a_e.py                     # Python script for Extended Figure 9a-e
+└── README.md                                        
+
+
 ```
 
 # Installation
