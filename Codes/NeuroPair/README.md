@@ -1,10 +1,8 @@
 # NeuroPair: Behavior Prediction from Single-Neuron Activity
 
-This repository implements NeuroPair, a recurrent graph neural network with attention (R-GAT) with per-neuron, behavior-specific attention mechanisms, designed to model and predict behavioral variables from neural recordings in the human claustrum  (CLA) and anterior cingulate cortex (ACC)
+This repository implements **NeuroPair**, a recurrent graph neural network with neuron-specific attention, used to model and predict behavioral variables from single-neuron recordings in the human claustrum (CLA) and anterior cingulate cortex (ACC). The code accompanies the paper:
 
-This repository contains the implementation of **NeuroPair**, a recurrent graph neural network with neuron-specific attention, used to model and predict behavioral variables from single-neuron recordings in the human claustrum (CLA) and anterior cingulate cortex (ACC). The code accompanies the paper:
-
-> "The human claustrum encodes surprise and uncertainty during adaptive learning", XX et al., *Nature*, 2025.
+> "# Human claustrum neurons encode uncertainty and prediction errors during aversive learning", XX et al., *XX*, 2025.
 
 ## Table of Contents
 
@@ -12,7 +10,9 @@ This repository contains the implementation of **NeuroPair**, a recurrent graph 
 2. [Feature](#features)
 3. [Directory Structure](#directory-structure)
 4. [Setup & Usage](#setup--usage)
-5. (#TODOs)
+5. [Citation](#Citation)
+6. [Contributing](#Contributing)
+7. [License](#License)
 
 ## Overview
 
@@ -28,8 +28,8 @@ This framework enables training, validation, and visualization of predicted vs. 
 
 - Trainable models for individual subjects and brain regions.
 - Support for multiple behavioral targets:
-  - Prediction errors
-  - Safety variance
+  - Uncertainty
+  - Prediction error
 - Modular code structure for flexibility and reproducibility.
 - Integrated plotting and evaluation tools for inspecting model performance.
 
@@ -83,7 +83,7 @@ python main.py
 
 If you use this code, please cite:
 
-> XX et al., "The human claustrum encodes surprise and uncertainty during adaptive learning", *Nature*, 2025.
+> XX et al., "Human claustrum neurons encode uncertainty and prediction errors during aversive learning", *XX*, 2025.
 
 ## Contributing
 
