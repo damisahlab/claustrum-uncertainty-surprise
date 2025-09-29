@@ -5,7 +5,7 @@
 - [Overview](#Overview)
 - [Abstract](#Abstract)  
 - [Software Requirements](#Software Requirements)
-- [Directory Structure](#Code-and-Data-Structure)
+- [Directory Structure](#Directory Structure)
 - [Installation](#Installation)
 - [Usage](#Usage)
 - [Citation](#Citation)
