@@ -4,8 +4,8 @@
 
 - [Overview](#Overview)
 - [Abstract](#Abstract)  
-- [Software Requirements](#Software Requirements)
-- [Directory Structure](#Directory Structure)
+- [Software Requirements](#Software-Requirements)
+- [Directory Structure](#Directory-Structure)
 - [Installation](#Installation)
 - [Usage](#Usage)
 - [Citation](#Citation)
