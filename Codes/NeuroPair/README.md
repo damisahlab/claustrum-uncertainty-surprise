@@ -7,7 +7,7 @@ This repository implements **NeuroPair**, a recurrent graph neural network with 
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Feature](#features)
+2. [Feature](#Feature)
 3. [Directory Structure](#directory-structure)
 4. [Setup & Usage](#setup--usage)
 5. [Citation](#Citation)
