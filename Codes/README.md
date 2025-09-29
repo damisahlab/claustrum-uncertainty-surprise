@@ -1,33 +1,29 @@
-# The human claustrum encodes surprise and uncertainty during adaptive learning
+# Human claustrum neurons encode uncertainty and prediction errors during aversive learning
 
 # Table of Contents
 
 - [Overview](#Overview)
 - [Abstract](#Abstract)  
-- [Requirements](#Requirements)
-- [Code and Data Structure](#Code-and-Data-Structure)
+- [Software Requirements](#Software Requirements)
+- [Directory Structure](#Code-and-Data-Structure)
 - [Installation](#Installation)
-- [How to use the code](#How-to-use-the-code)
+- [Usage](#Usage)
 - [Citation](#Citation)
+- [Contributing](#Contributing)
 - [License](#License)
 
 # Overview
 
-This repository contains code for reproducing analyses from the paper *The human claustrum encodes surprise and uncertainty during adaptive learning* by XX et al. 
+This repository contains code for reproducing analyses from the paper *Human claustrum neurons encode uncertainty and prediction error during aversive learning*. 
 
 # Abstract
 
-Flexible adaptation in dynamic environments relies on continuous updating of internal generative models of the world. A central question is how such computations are implemented in distributed cortical and subcortical circuits. The claustrum (CLA), with its dense reciprocal connectivity across the neocortex, is anatomically positioned to support such computations.
+We recorded single-neuron activity from the human claustrum (CLA), anterior cingulate cortex (ACC), and amygdala (AMY) during aversive learning. CLA and ACC neurons showed structured, task-related responses, whereas AMY neurons were weakly modulated. CLA neurons uniquely encoded uncertainty and prediction errors, providing the first direct evidence that the claustrum supports predictive processing and coordinates distributed neural systems during adaptive behavior.
 
-We recorded single-neuron activity in the human CLA during an aversive learning task, with the anterior cingulate cortex (ACC) and amygdala (AMY) included as controls. CLA and ACC neurons exhibited structured task-related responses, with subpopulations tuned to stimulus onset, outcomes, or both, and region-specific biases toward preferred outcomes. In contrast, AMY neurons showed minimal task modulation. Across trials, CLA neurons were modulated by subjective uncertainty and prediction error, showing patterns distinct from ACC.
+# Software Requirements
 
-Finally, a recurrent graph neural network (R-GNN) incorporating attention mechanisms successfully decoded uncertainty and prediction error on a per-subject basis. These results indicate that the human CLA encodes belief dynamics and may act as an active hub in the brain’s inferential hierarchy, supporting rapid signal propagation and coordination of distributed neural systems for flexible behavior.
-
-# Requirements
-
-## Software Requirements
-
-- **MATLAB (MathWorks, Natick, MA)** for Figures 1–3  
+- **MATLAB 2023b** (**MathWorks, Natick, MA**) for Figures 1-3
+  
   Required toolboxes:
   
   - Statistics and Machine Learning Toolbox
@@ -37,8 +33,6 @@ Finally, a recurrent graph neural network (R-GNN) incorporating attention mechan
 - **Python 3.9 and R version 4.5.0** for Figures 4–6
 
 # Directory Structure
-
-## Directory Structure
 
 Here's an overview of the repository structure:
 
@@ -80,7 +74,7 @@ The analysis of each figure can be regenerated from that folder using the corres
 
 If you use this code, please cite:
 
-> XX et al., "The human claustrum encodes surprise and uncertainty during adaptive learning", *Nature*, 2025.
+> XX et al., "Human claustrum neurons encode uncertainty and prediction error during aversive learning", *XX*, 2025.
 
 ## Contributing
 

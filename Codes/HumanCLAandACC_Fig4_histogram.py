@@ -9,7 +9,8 @@ This code produces:
 IDE: Spyder
 Date: 03/2025
 """
-#%% Part 1 - Extended Data Fig. 8b, left column
+#%% ###########################################################################
+# Part 1 - Extended Data Fig. 8b, left column
 #%% Libraries
 from IPython import get_ipython
 get_ipython().magic('reset -sf')  # Reset environment
@@ -31,12 +32,13 @@ behaviors = {'sub016A', 'sub016B', 'sub017', 'sub019A', 'sub019B', 'sub020', 'su
 low_percentile = 0.3  
 high_percentile = 1 - low_percentile
 
-output_dir = r"path"
-os.makedirs(output_dir, exist_ok=True)  # Ensure output directory exists
+data_path = rf'define data path'
+save_path = rf'define save path'
+os.makedirs(save_path, exist_ok=True)  # Ensure output directory exists
 
 #%% Loop Through Subjects
 for sub in behaviors:
-    file_path = f"path/behaviors/{sub}.xlsx"
+    file_path = rf'{data_path}/behaviors/{sub}.xlsx'
     
     # Check if file exists before proceeding
     if not os.path.exists(file_path):
@@ -87,15 +89,14 @@ for sub in behaviors:
         ax.tick_params(axis='both', which='both', length=1, width=0.5, pad=1)
 
         # Save plot
-        save_path_svg = os.path.join(output_dir, f"{sub}-{behavior_name}.svg")
-        save_path_pdf = os.path.join(output_dir, f"{sub}-{behavior_name}.pdf")
+        save_path_svg = os.path.join(save_path, f"{sub}-{behavior_name}.svg")
+        save_path_pdf = os.path.join(save_path, f"{sub}-{behavior_name}.pdf")
         plt.savefig(save_path_svg, dpi=300, bbox_inches="tight")
         plt.savefig(save_path_pdf, dpi=300, bbox_inches="tight")
         plt.close()
-        
-        print(f"Saved: {save_path_svg}")
 
-#%% Part 2 - Extended Data Fig. 8b, right column and Fig. 4c,d
+#%% ###########################################################################
+# Part 2 - Extended Data Fig. 8b, right column and Fig. 4c,d
 #%% Libraries
 from IPython import get_ipython
 get_ipython().magic('reset -sf')  # Reset environment, '-sf' forces a reset without confirmation
@@ -127,7 +128,7 @@ def dot_histogram_yaxis(ax, data, bins, color, offset=0, dot_size=.1, max_dots=5
 
 def permutationTest(sample1, sample2, permutations, sidedness, exact=False):
     """
-    permutation_test from (cite as):
+    permutation_test adapted from :
     Laurens R Krol (2025). Permutation Test (https://github.com/lrkrol/permutationTest), GitHub. Retrieved March 20, 2025.    
     Created on Thu Mar 20 13:11:51 2025
     @author: rd883
@@ -178,9 +179,9 @@ plt.rcParams["font.family"] = "Arial"
 plt.rcParams["font.size"] = 5
 plt.rcParams["axes.linewidth"] = 0.5
 
-input_dir = r"path\data"
-output_dir = r"path"
-os.makedirs(output_dir, exist_ok=True)  # Ensure the directory exists
+data_path = rf'define data path'
+save_path = rf'define save path'
+os.makedirs(save_path, exist_ok=True)  # Ensure the directory exists
 
 # Identify unique subject IDs and conditions
 subjects = ["016A", "016B", "017", "019A", "019B", "020", "023", "024A"]
@@ -194,7 +195,7 @@ for subject in subjects:
     # Load data for each condition
     for condition in conditions:
         filename = f"Uncertainty_Percentile_30-70_4_sec_PositionChange_{condition}_Uncertainty_distribution_Sub{subject}.mat"
-        filepath = os.path.join(input_dir, filename)
+        filepath = os.path.join(data_path, filename)
         if os.path.exists(filepath):
             data = scipy.io.loadmat(filepath)['data_no_zeros'].flatten()
             data_dict[condition] = data
@@ -266,8 +267,8 @@ for subject in subjects:
             ax[i].tick_params(axis='both', which='both', length=1, width=0.5, pad=1)
         
         # Save the plot
-        plt.savefig(os.path.join(output_dir, f"Uncertainty_Distribution_Sub{subject}.svg"), dpi=300, bbox_inches="tight")
-        plt.savefig(os.path.join(output_dir, f"Uncertainty_Distribution_Sub{subject}.pdf"), dpi=300, bbox_inches="tight")
+        plt.savefig(os.path.join(save_path, f"Uncertainty_Distribution_Sub{subject}.svg"), dpi=300, bbox_inches="tight")
+        plt.savefig(os.path.join(save_path, f"Uncertainty_Distribution_Sub{subject}.pdf"), dpi=300, bbox_inches="tight")
         plt.close()
 
 # only the significants from A or B
@@ -287,7 +288,6 @@ for i in range(len(kurt_A_high)):  # Assuming same length for A and B
         new_low.append(kurt_B_low[i])
 
 _, p_value = wilcoxon(new_high, new_low)
-p_value, _ = permutationTest(new_high, new_low, permutations=10000, sidedness='both')
 
 #%% Plot Stats
 # Create figure and axis
@@ -351,6 +351,6 @@ ax.set_ylabel(ax.get_ylabel(), labelpad=1)
 # Show plot
 plt.tight_layout()
 plt.show()
-plt.savefig(os.path.join(output_dir, "kurtosis.svg"), dpi=300, bbox_inches="tight")
-plt.savefig(os.path.join(output_dir, "kurtosis.pdf"), dpi=300, bbox_inches="tight")
+plt.savefig(os.path.join(save_path, "kurtosis.svg"), dpi=300, bbox_inches="tight")
+plt.savefig(os.path.join(save_path, "kurtosis.pdf"), dpi=300, bbox_inches="tight")
 plt.close()

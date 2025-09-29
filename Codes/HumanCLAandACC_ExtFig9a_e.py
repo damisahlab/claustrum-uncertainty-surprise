@@ -43,7 +43,7 @@ def process_data(fr_data, baseline_idx):
 
 def permutationTest(sample1, sample2, permutations, sidedness, exact=False):
     """
-    Permutation test from:
+    Permutation test adapted from:
     Laurens R Krol (2025). Permutation Test (https://github.com/lrkrol/permutationTest), GitHub. Retrieved March 20, 2025.        
     """        
     # p, observed_difference, effect_size = 10, 10, 10
@@ -269,7 +269,6 @@ def plot_busters_pausers(busters, busters_crash, busters_avoid, pausers, pausers
     busters_crash = np.array(busters_crash)
     pausers_avoid = np.array(pausers_avoid)
     pausers_crash = np.array(pausers_crash)
-    confidence_interval='sem_ci_2d'
     # Preprocessing raw data
     time_axis = np.linspace(-2, 4, busters.shape[1])
     baseline_idx = (time_axis >= -2) & (time_axis <= -1.5)
@@ -426,7 +425,10 @@ def plot_heatmap_square(fr, title, ylabel, brain_region, condition):
 brain_region = 'AMY'
 brain_regions = {'AMY': ['sub016A', 'sub016B', 'sub024A']}
 subjects = brain_regions.get(brain_region, [])
-folder_path = os.path.join(f'path/{brain_region}/Population_permutation_new/')
+
+data_path = rf'define data path'
+save_path = rf'define save path'
+folder_path = os.path.join(rf'{save_path}/{brain_region}/Population_permutation/')
 
 # Check if the folder exists, and if not, create it
 for sub in ['Data', 'Rasters']:
@@ -437,13 +439,13 @@ for condition, (a_s, a_e) in zip(['Appear'], [(0, 0.5)]):
     busters, busters_units, busters_crash, busters_avoid, p_busters = [], [], [], [], []
     pausers, pausers_units, pausers_crash, pausers_avoid, p_pausers = [], [], [], [], []
     for sub in subjects:
-       good_neurons = pd.read_csv(fr'path/good_neurons_{brain_region}.csv')
+       good_neurons = pd.read_csv(fr'define path to good neurons list/good_neurons_{brain_region}.csv')
        good_neurons = good_neurons.loc[good_neurons['goodneurons'].str.contains(sub, na=False)]
        file_names = good_neurons.iloc[:, 0].astype(str)
-       mat_dir = os.path.join(f'path/Appear/{brain_region}/', f'{sub}')
+       mat_dir = os.path.join(f'{data_path}/Appear/{brain_region}/', f'{sub}')
 
        for i, file_name in enumerate(file_names):
-           file_path = os.path.join(f'path/Appear/{brain_region}/', f'{sub}/{brain_region}_{sub}.xlsx')
+           file_path = os.path.join(f'{data_path}/Appear/{brain_region}/', f'{sub}/{brain_region}_{sub}.xlsx')
 
            behavior = pd.read_excel(file_path)   
            outcome = behavior['outcome']

@@ -67,10 +67,13 @@ columns_to_keep = ["A_safety_variance", "B_safety_variance",
                    "A_absolute_prediction_error", "B_absolute_prediction_error"]
 corr_matrices = []
 
+data_path = rf'define data path'
+save_path = rf'define save path'
+
 #%% Load and compute correlation
 for sub in subjects:
     file_path = os.path.join(
-        f'path/Appear/{brain_region}/',
+        f'{data_path}/Appear/{brain_region}/',
         f'{sub}/{brain_region}_{sub}.xlsx'
     )
     behavior = pd.read_excel(file_path)
@@ -102,6 +105,5 @@ fig.colorbar(sm, cax=cbar_ax, label='Pearson r')
 fig.suptitle(f'Correlograms – {brain_region}', fontsize=14)
 plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['font.size'] = 5
-fig.savefig(rf"path\correlograms_{brain_region}.svg", format='svg', bbox_inches='tight')
+fig.savefig(rf"{save_path}\correlograms_{brain_region}.svg", format='svg', bbox_inches='tight')
 plt.close()
-

@@ -9,10 +9,10 @@ This repository contains the implementation of **NeuroPair**, a recurrent graph 
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Directory Structure](#directory-structure)
-3. [Setup & Usage](#setup--usage)
-4. [Features](#features)
-5. [TODOs](#TODOs)
+2. [Feature](#features)
+3. [Directory Structure](#directory-structure)
+4. [Setup & Usage](#setup--usage)
+5. (#TODOs)
 
 ## Overview
 

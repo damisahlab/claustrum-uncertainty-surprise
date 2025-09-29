@@ -537,8 +537,11 @@ brain_regions = {
 }
 subjects = brain_regions.get(brain_region, [])
 
+data_path = rf'define data path'
+save_path = rf'define save path'
+
 # Output folder
-folder_path = os.path.join(f'path/{brain_region}/Population_cbp/')
+folder_path = os.path.join(rf'{save_path}/{brain_region}/Population_cbp/')
 
 # Crete subfolder
 for sub in ['Data', 'Rasters', 'Appear', 'Appear/rasters', 'Event', 'Event/rasters']:
@@ -546,7 +549,7 @@ for sub in ['Data', 'Rasters', 'Appear', 'Appear/rasters', 'Event', 'Event/raste
 
 for condition, (a_s, a_e) in zip(['Appear', 'Event'], [(0, 0.5), (0.67, 1.17)]):   
     behavior_columns = ["A_absolute_prediction_error", "A_safety_variance", "B_absolute_prediction_error", "B_safety_variance"]    
-    file_path = os.path.join('path to bad_neurons', f'{brain_region}_badneurons_{condition}.xlsx')
+    file_path = os.path.join('define path to bad neurons list', f'{brain_region}_badneurons_{condition}.xlsx')
     badneurons = pd.read_excel(file_path)
     for behavior_name in behavior_columns:
         badneuron_high = badneurons[f"{behavior_name}_high"].dropna().tolist()
@@ -559,14 +562,14 @@ for condition, (a_s, a_e) in zip(['Appear', 'Event'], [(0, 0.5), (0.67, 1.17)]):
         hh_a, hl_a, lh_a, ll_a, hh_a_o, hl_a_o, lh_a_o, ll_a_o, h_a_units, l_a_units, h_a_bar, l_a_bar, h_a_p, l_a_p = [],[],[],[],[],[],[],[],[],[],[],[],[],[]
         hh_e, hl_e, lh_e, ll_e, hh_e_o, hl_e_o, lh_e_o, ll_e_o, h_e_units, l_e_units, h_e_bar, l_e_bar, h_e_p, l_e_p = [],[],[],[],[],[],[],[],[],[],[],[],[],[]
         for sub in subjects:
-            good_neurons = pd.read_csv(fr'path/good_neurons_{brain_region}.csv')
+            good_neurons = pd.read_csv(fr'define path to good neurons list/good_neurons_{brain_region}.csv')
             good_neurons = good_neurons.loc[good_neurons['goodneurons'].str.contains(sub, na=False)]  # Extract subject-specific neurons
             file_names = good_neurons.iloc[:, 0].astype(str)  # Convert to string in case of numeric values    
     
             if condition == 'Appear':
-                mat_dir = os.path.join(f'path/Appear/{brain_region}/', f'{sub}')
+                mat_dir = os.path.join(rf'{data_path}/Appear/{brain_region}/', f'{sub}')
             elif condition == 'Event':
-                mat_dir = os.path.join(f'path/Event/{brain_region}/', f'{sub}')
+                mat_dir = os.path.join(rf'{data_path}/Event/{brain_region}/', f'{sub}')
             
             # Extract the percentage of high and low
             for i, file_name in enumerate(file_names):
@@ -574,9 +577,9 @@ for condition, (a_s, a_e) in zip(['Appear', 'Event'], [(0, 0.5), (0.67, 1.17)]):
                     continue
                 else:
                     if condition == 'Appear':
-                        file_path = os.path.join(f'path/Appear/{brain_region}/', f'{sub}/{brain_region}_{sub}.xlsx')
+                        file_path = os.path.join(rf'{data_path}/Appear/{brain_region}/', f'{sub}/{brain_region}_{sub}.xlsx')
                     elif condition == 'Event':
-                        file_path = os.path.join(f'path/Event/{brain_region}/', f'{sub}/{brain_region}_{sub}.xlsx')
+                        file_path = os.path.join(rf'{data_path}/Event/{brain_region}/', f'{sub}/{brain_region}_{sub}.xlsx')
                         
                     behavior = pd.read_excel(file_path)   
                     outcome = behavior['outcome']
