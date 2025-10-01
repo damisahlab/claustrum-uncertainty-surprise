@@ -24,7 +24,7 @@ NeuroPair is designed to predict trial-by-trial behaviors from neural population
 
 This framework enables training, validation, and visualization of predicted vs. observed behaviors, supporting reproduction of figures from the associated Nature paper.
 
-![NeuroPair](C:\Users\rd883\Desktop\GitHub\claustrum-uncertainty-surprise\NeuroPair\NeuroPair-01.png)
+![](C:\Users\rd883\Desktop\GitHub\claustrum-uncertainty-surprise\NeuroPair\NeuroPair-01.png)
 
 ## Feature
 
