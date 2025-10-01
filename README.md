@@ -20,6 +20,8 @@ This repository contains code for reproducing analyses from the paper *Human cla
 
 We recorded single-neuron activity from the human claustrum (CLA), anterior cingulate cortex (ACC), and amygdala (AMY) during aversive learning. CLA and ACC neurons showed structured, task-related responses, whereas AMY neurons were weakly modulated. CLA neurons uniquely encoded uncertainty and prediction errors, providing the first direct evidence that the claustrum supports predictive processing and coordinates distributed neural systems during adaptive behavior.
 
+![](cla_uncertainty_pe.png)
+
 # Software Requirements
 
 - **MATLAB 2023b** (**MathWorks, Natick, MA**) for Figures 1-3
@@ -63,8 +65,6 @@ Here's an overview of the repository structure:
 ├── HumanCLAandACC_ExtFig8a.py                       # Python script for Extended Figure 8a
 ├── HumanCLAandACC_ExtFig9a_e.py                     # Python script for Extended Figure 9a-e
 └── README.md                                        
-
-
 ```
 
 # Installation
