@@ -482,7 +482,7 @@ for condition, (a_s, a_e) in zip(['Appear'], [(0, 0.5)]):
            p_busters.append(p_buster)
            p_pausers.append(p_pauser)
            unit_id.append(file_name)
-           fr_heatmap.append(np.mean(fr_values, axis=0)) 
+           fr_heatmap.append(np.mean(fr_analysis, axis=0)) 
            if np.any(np.array(p_buster) < 0.05): # store neurons               
                busters.append(np.mean(fr_values, axis=0))                
                busters_units.append(file_name)                                  

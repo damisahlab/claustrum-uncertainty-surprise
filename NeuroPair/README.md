@@ -24,7 +24,7 @@ NeuroPair is designed to predict trial-by-trial behaviors from neural population
 
 This framework enables training, validation, and visualization of predicted vs. observed behaviors, supporting reproduction of figures from the associated Nature paper.
 
-![](NeuroPair-01.png)
+![](NeuroPair1.png)
 
 ## Feature
 
