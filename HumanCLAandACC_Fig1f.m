@@ -1,7 +1,7 @@
 %-----------------------------------------------------------------------------------------
 % Script for time distributions of events of the spaceship task
 %
-% Single-Neuron Responses of CLA and ACC to Salient Information
+% Human claustrum neurons encode uncertainty and prediction errors during aversive learning
 % Figure   1f
 % Author:  Mauricio Medina
 % License: 
@@ -28,7 +28,7 @@ hHit = histogram(allApp2Hit,'BinLimits',[0,1.500],'BinWidth',.050,'FaceColor',[0
     countsApp2Hit = hHit.Values';
     edges = hHit.BinEdges;
 hold on
-hDisap = histogram(allApp2Disapp,'BinLimits',[0,1.500],'BinWidth',0.050,'FaceColor',[0.5 0.5 0.5]);
+hDisap = histogram(allApp2Disapp,'BinLimits',[0,1.500],'BinWidth',0.050,'FaceColor',[0.7 0.7 0.7]);
     countsApp2Disap = hDisap.Values';
 xlim([0 1.5])
 ylim([1 1200])

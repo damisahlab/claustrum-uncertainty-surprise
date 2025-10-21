@@ -2,7 +2,7 @@
 % Script for analysis of pupil change after asteroid appearance 
 %
 % Human claustrum neurons encode uncertainty and prediction errors during aversive learning
-% Figure   1j
+% Figure   1k
 % Author:  Mauricio Medina
 % License: 
 %-----------------------------------------------------------------------------------------
@@ -58,11 +58,8 @@ semHit = semHit';
 semMiss = std(bsMiss)/sqrt(size(bsMiss,1));
 semMiss = semMiss';
 
-appBaseline = allAppear(:,1:94);
-meanAppBaseline = mean(appBaseline,2);
-
-appAfterZero = allAppear(:,281:374); %188(0s) 234(0.5s) 281(1s) 374(2s)
-meanAfterZero = mean(appAfterZero,2);
+meanHitBox = mean(allHit(:,514:745),2); %263:328
+meanMissBox = mean(allMiss(:,514:745),2);
 
 %plot responses
 f = figure(1);
@@ -70,35 +67,45 @@ clf
 f.Position = [0 600 900 350];
 fontname('Arial')
 subplot(1,2,1)
-p = fill(timeForPupil, smoothApp + semApp', [0 0 1]);
+p = fill(timeForPupil, smoothHit + semHit', [0.6 0.2 0.8]);
 p.EdgeColor = [1 1 1];
-hold on
-f=fill(timeForPupil, smoothApp - semApp', [1 1 1]);
-f.EdgeColor = [1 1 1];
-plot(timeForPupil, smoothApp,'b','LineWidth',2)
-plot([0 0],[-10 10],'--r')
 alpha(p,0.2)
+hold on
+f=fill(timeForPupil, smoothHit - semHit', [1 1 1]);
+f.EdgeColor = [1 1 1];
+
+pM = fill(timeForPupil, smoothMiss + semMiss', [0 0.8 0]);
+pM.EdgeColor = [1 1 1];
+alpha(pM,0.2)
+fM=fill(timeForPupil,smoothMiss - semMiss',[1 1 1]);
+fM.EdgeColor = [1 1 1];
+
+plot(timeForPupil, smoothHit,'Color',[0.6 0.2 0.8],'LineWidth',2)
+plot(timeForPupil, smoothMiss, 'Color', [0 0.8 0], 'LineWidth',2)
+plot([0 0],[-10 10],'--r')
 xlim([-2 6])
-ylim([-0.05 0.4])
+ylim([-0.1 0.4])
 fontsize(12,'pixels')
 xlabel('Time from appear (s)','FontSize',12)
 ylabel('Pupil diameter change (mm)','FontSize',12)
+hold off
 
 subplot(1,2,2)
-plot([1 2.5],[meanAppBaseline, meanAfterZero],'Color',[0.9 0.9 0.9])
+plot([1 2.5],[meanHitBox, meanMissBox],'Color',[0.9 0.9 0.9])
 hold on
-plot(1,meanAppBaseline,'vk','MarkerFaceColor',[0 0 0])
-plot(2.5,meanAfterZero,'^b','MarkerFaceColor','b')
-alpha(p,0.2)
+plot(1,meanHitBox,'v','MarkerEdgeColor',[0.6 0.2 0.8],'MarkerFaceColor',[0.6 0.2 0.8])
+plot(2.5,meanMissBox,'^','MarkerEdgeColor',[0 0.8 0],'MarkerFaceColor',[0 0.8 0])
+%alpha(p,0.2)
 xlim([0 3.5])
 ylim([0 6])
 xticks([1 2.5])
-xticklabels({'Baseline','Appear'})
+xticklabels({'Crash','Avoidance'})
 ylabel('Absolute pupil diameter (mm)','FontSize',12)
-sgt= sgtitle('Figure 1j. Pupil responses to asteroid appearance');
+sgt= sgtitle('Figure 1k. Pupil responses to outcomes');
 sgt.FontSize = 13;
 
 %STATS
-[H,P,CI,STATS]=ttest(meanAppBaseline,meanAfterZero);
+[H,P,CI,STATS]=ttest(meanHitBox,meanMissBox);
+
 display = ['Student T test, p=',num2str(P)];
 disp(display)

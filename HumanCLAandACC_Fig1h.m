@@ -2,7 +2,7 @@
 % Script for behavioral analysis of the position from safety for each task
 % event
 %
-% Single-Neuron Responses of CLA and ACC to Salience Events
+% Human claustrum neurons encode uncertainty and prediction errors during aversive learning
 % Figure   1h
 % Author:  Mauricio Medina
 % License: 

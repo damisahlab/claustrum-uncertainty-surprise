@@ -1,7 +1,7 @@
 %-----------------------------------------------------------------------------------------
 % Script for behavioral analysis of the spaceship task per participant
 %
-% Single-Neuron Responses of CLA and ACC to Salience Events
+% Human claustrum neurons encode uncertainty and prediction errors during aversive learning
 % Figure   1e
 % Author:  Mauricio Medina
 % License: 
@@ -9,9 +9,6 @@
 
 % clean workspace
 clear; clc; close all;
-
-% Navigate to GitHub/Codes/FigureCodes
-%cd('/Users/mauricio/Library/CloudStorage/OneDrive-YaleUniversity/claustrumPaper/claustrumPaperNature/GitHub/Codes/FigureCodes')
 
 % load data
 data_path = fullfile(fileparts(fileparts(pwd)), 'Data'); 
@@ -50,8 +47,8 @@ for i=1:size(trialNumber,2)
     healthFig(i,1) = mean(dataForEveryTrial{1,i}(:,4));
 end
 
-healthFig = lowpassFilter(healthFig,100,2);
-yPosFig = lowpassFilter(yPosFig,100,2)./600;
+healthFig = lowpassFiltering(healthFig,100,2);
+yPosFig = lowpassFiltering(yPosFig,100,2)./600;
 
 f = figure(1);
 clf
