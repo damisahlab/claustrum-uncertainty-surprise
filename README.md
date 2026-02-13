@@ -98,7 +98,7 @@ If you use this repository (code, figures, or analysis pipeline) in academic wor
   year    = {YYYY},
   doi     = {10.xxxx/xxxxx}
 }
-
+```
 ## Contributing
 
 We welcome contributions!
