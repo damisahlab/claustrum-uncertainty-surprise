@@ -85,9 +85,19 @@ The analysis of each figure can be regenerated from that folder using the corres
 
 # Citation
 
-If you use this code, please cite:
+If you use this repository (code, figures, or analysis pipeline) in academic work, please cite:
 
-> XX et al., "Human claustrum neurons encode uncertainty and prediction error during aversive learning", *XX*, 2025.
+> XX et al, "Human claustrum neurons encode uncertainty and prediction errors during aversive learning", *XX*, 2026
+
+### BibTeX
+```bibtex
+@article{XX2026,
+  title   = {Human claustrum neurons encode uncertainty and prediction errors during aversive learning},
+  author  = {...},
+  journal = {...},
+  year    = {YYYY},
+  doi     = {10.xxxx/xxxxx}
+}
 
 ## Contributing
 
