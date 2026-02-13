@@ -32,7 +32,7 @@ We recorded single-neuron activity from the human claustrum (CLA), anterior cing
   
   - Signal Processing Toolbox
 
-- **Python 3.9 and R version 4.5.0** for Figures 4–6
+- **Python 3.9** for Figures 4–5
 
 # Directory Structure
 
