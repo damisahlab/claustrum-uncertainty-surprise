@@ -18,13 +18,13 @@ This repository contains code for reproducing analyses from the paper *Human cla
 
 # Abstract
 
-We recorded single-neuron activity from the human claustrum (CLA), anterior cingulate cortex (ACC), and amygdala (AMY) during aversive learning. CLA and ACC neurons showed structured, task-related responses, whereas AMY neurons were weakly modulated. CLA neurons uniquely encoded uncertainty and prediction errors, providing the first direct evidence that the claustrum supports predictive processing and coordinates distributed neural systems during adaptive behavior.
+We recorded single-neuron activity from the human claustrum (CLA), anterior cingulate cortex (ACC), and amygdala (AMY) during aversive learning. CLA and ACC neurons showed structured, task-related responses, whereas AMY neurons were weakly modulated. CLA neurons encoded uncertainty and prediction errors, providing the first direct evidence that the claustrum supports predictive processing during adaptive behavior.
 
 ![](cla_uncertainty_pe.png)
 
 # Software Requirements
 
-- **MATLAB 2023b** (**MathWorks, Natick, MA**) for Figures 1-3
+- **MATLAB 2023b** (**MathWorks, Natick, MA**) for Figures 1-4
   
   Required toolboxes:
   
@@ -32,7 +32,7 @@ We recorded single-neuron activity from the human claustrum (CLA), anterior cing
   
   - Signal Processing Toolbox
 
-- **Python 3.9** for Figures 4–5
+- **Python 3.9** for Figures 4–6
 
 # Directory Structure
 
@@ -47,15 +47,15 @@ Here's an overview of the repository structure:
 ├── HumanCLAandACC_Fig1h.m                           # MATLAB script for Figure 1h
 ├── HumanCLAandACC_Fig1i.m                           # MATLAB script for Figure 1i
 ├── HumanCLAandACC_Fig1j.m                           # MATLAB script for Figure 1j
-├── HumanCLAandACC_Fig2_HeatMap.m                    # MATLAB script for Figure 2 heatmap
-├── HumanCLAandACC_Fig2&3_MeanResponseStats.m        # MATLAB script for Figures 2 & 3 mean responses
-├── HumanCLAandACC_Fig2&3_PausersBursters_HeatmapZScoresStats.m  # MATLAB script for Figures 2 & 3 heatmap stats
-├── HumanCLAandACC_Fig2&3_PermutationTest.m          # MATLAB script for Figures 2 & 3 permutation test
-├── HumanCLAandACC_Fig2&3_exampleNeuron.m            # MATLAB script for Figures 2 & 3 example neuron
-├── HumanCLAandACC_Fig4&5_Chord_Diagram.R            # R script for Figures 4 & 5 chord diagram
-├── HumanCLAandACC_Fig4&5_Mutual_Information.py      # Python script for Figures 4 & 5 mutual information
-├── HumanCLAandACC_Fig4&5_cluster_based_perm.py      # Python script for Figures 4 & 5 cluster-based permutation analysis
-├── HumanCLAandACC_Fig4_histogram.py                 # Python script for Figure 4 histogram
+├── HumanCLAandACC_Fig3_HeatMap.m                    # MATLAB script for Figure 3 heatmap
+├── HumanCLAandACC_Fig3&4_MeanResponseStats.m        # MATLAB script for Figures 3 & 4 mean responses
+├── HumanCLAandACC_Fig3&4_PausersBursters_HeatmapZScoresStats.m  # MATLAB script for Figures 3 & 4 heatmap stats
+├── HumanCLAandACC_Fig3&4_PermutationTest.m          # MATLAB script for Figures 3 & 4 permutation test
+├── HumanCLAandACC_Fig3&4_exampleNeuron.m            # MATLAB script for Figures 3 & 4 example neuron
+├── HumanCLAandACC_Fig5&6_Chord_Diagram.R            # R script for Figures 5 & 6 chord diagram
+├── HumanCLAandACC_Fig5&6_Mutual_Information.py      # Python script for Figures 5 & 6 mutual information
+├── HumanCLAandACC_Fig5&6_cluster_based_perm.py      # Python script for Figures 5 & 6 cluster-based permutation analysis
+├── HumanCLAandACC_Fig5_histogram.py                 # Python script for Figure 5 histogram
 ├── HumanCLAandACC_ExtFig2_FractionOfResponders.m    # MATLAB script for Extended Figure 2 fraction of responders
 ├── HumanCLAandACC_ExtFig2_PercentageOfResponders.m  # MATLAB script for Extended Figure 2 percentage of responders
 ├── HumanCLAandACC_ExtFig2_vennDiagrams.m            # MATLAB script for Extended Figure 2 Venn diagrams
