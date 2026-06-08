@@ -18,7 +18,7 @@ This repository contains code for reproducing analyses from the paper *Human cla
 
 # Abstract
 
-We recorded single-neuron activity from the human claustrum (CLA), anterior cingulate cortex (ACC), and amygdala (AMY) during aversive learning. CLA and ACC neurons showed structured, task-related responses, whereas AMY neurons were weakly modulated. CLA neurons uniquely encoded uncertainty and prediction errors, providing the first direct evidence that the claustrum supports predictive processing and coordinates distributed neural systems during adaptive behavior.
+We recorded single-neuron activity from the human claustrum (CLA), anterior cingulate cortex (ACC), and amygdala (AMY) during aversive learning. CLA and ACC neurons showed structured, task-related responses, whereas AMY neurons were weakly modulated. CLA neurons encoded uncertainty and prediction errors, providing the first cellular level evidence that the human claustrum may play a role in predictive processing and in coordinating distributed neural systems during adaptive behavior.
 
 ![](cla_uncertainty_pe.png)
 
