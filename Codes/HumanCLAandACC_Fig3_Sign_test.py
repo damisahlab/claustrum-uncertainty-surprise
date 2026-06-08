@@ -18,11 +18,10 @@ acc = pd.read_excel(path, sheet_name="ACC")
 
 # -----------------------------
 # Build neuron-level table
-# Assumes:
 # col A = subject
 # col B + C together help define the neuron
-# col F = HIT firing rate
-# col H = MISS firing rate
+# col F = Crash firing rate
+# col H = Avoidance firing rate
 # -----------------------------
 def make_wide(df, region_name):
     out = pd.DataFrame({
